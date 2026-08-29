@@ -221,7 +221,7 @@ namespace Nager.Date
         CH,
 
         /// <summary>
-        /// Côte d'Ivoire
+        /// Côte d'Ivoire / Ivory Coast
         /// </summary>
         CI,
 
@@ -1046,7 +1046,7 @@ namespace Nager.Date
         SS,
 
         /// <summary>
-        /// Sao Tome and Principe
+        /// São Tomé and Príncipe
         /// </summary>
         ST,
 
@@ -1066,7 +1066,7 @@ namespace Nager.Date
         SY,
 
         /// <summary>
-        /// Swaziland
+        /// Eswatini (Swaziland)
         /// </summary>
         SZ,
 

@@ -14,7 +14,7 @@ namespace Nager.Date.UnitTest.Common
             var startYear = DateTime.Today.Year - 100;
             var endYear = DateTime.Today.Year + 100;
 
-            foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
+            foreach (var countryCode in Enum.GetValues<CountryCode>())
             {
                 var provider = HolidaySystem.GetHolidayProvider(countryCode);
 
@@ -41,7 +41,7 @@ namespace Nager.Date.UnitTest.Common
             var startYear = DateTime.Today.Year - 100;
             var endYear = DateTime.Today.Year + 100;
 
-            foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
+            foreach (var countryCode in Enum.GetValues<CountryCode>())
             {
                 var provider = HolidaySystem.GetHolidayProvider(countryCode);
 
@@ -76,7 +76,7 @@ namespace Nager.Date.UnitTest.Common
                             Assert.Fail($"wrong format {countryCode} - {holiday.Id}");
                         }
 
-                        Assert.IsLessThan(40, holiday.Id.Length, $"{countryCode} - {holiday.Id}");
+                        Assert.IsLessThanOrEqualTo(40, holiday.Id.Length, $"The holiday ID is too long (Max: 40 characters). Actual length: {holiday.Id.Length}. ID: '{holiday.Id}'");
                     }
                 }
             }

@@ -17,7 +17,7 @@ namespace Nager.Date.UnitTest.Common
             var startYear = DateTime.Today.Year - 100;
             var endYear = DateTime.Today.Year + 100;
 
-            foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
+            foreach (var countryCode in Enum.GetValues<CountryCode>())
             {
                 var publicHolidayProvider = HolidaySystem.GetHolidayProvider(countryCode);
                 if (publicHolidayProvider is NoHolidaysHolidayProvider)
@@ -46,7 +46,7 @@ namespace Nager.Date.UnitTest.Common
             var startYear = DateTime.Today.Year - 100;
             var endYear = DateTime.Today.Year + 100;
 
-            foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
+            foreach (var countryCode in Enum.GetValues<CountryCode>())
             {
                 var corruptPublicHolidaysFound = false;
 
@@ -76,7 +76,7 @@ namespace Nager.Date.UnitTest.Common
             var startYear = DateTime.Today.Year - 100;
             var endYear = DateTime.Today.Year + 100;
 
-            foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
+            foreach (var countryCode in Enum.GetValues<CountryCode>())
             {
                 for (var calculationYear = startYear; calculationYear < endYear; calculationYear++)
                 {
@@ -86,9 +86,11 @@ namespace Nager.Date.UnitTest.Common
                         .GroupBy(o => new { o.Date, o.EnglishName, o.LocalName, o.SubdivisionCodes })
                         .Select(o => new { o.Key.Date, o.Key.EnglishName, Count = o.Count() });
 
-                    if (groupedHolidays.Where(o => o.Count > 1).Any())
+                    if (groupedHolidays.Any(o => o.Count > 1))
                     {
-                        Assert.Fail($"Check country {countryCode}");
+                        var holidayNames = groupedHolidays.Where(o => o.Count > 1).Select(o => o.EnglishName);
+
+                        Assert.Fail($"Check country {countryCode} {string.Join(",", holidayNames)}");
                     }
                 }
             }
@@ -107,6 +109,17 @@ namespace Nager.Date.UnitTest.Common
             Assert.IsTrue(isPublicHoliday);
 
             isPublicHoliday = HolidaySystem.IsPublicHoliday(new DateTime(2016, 1, 6), "AT");
+            Assert.IsTrue(isPublicHoliday);
+        }
+
+
+        [TestMethod]
+        public void CheckIsPublicHoliday_WithSubdivisonCode()
+        {
+            var isPublicHoliday = HolidaySystem.IsPublicHoliday(new DateTime(2026, 3, 9), CountryCode.AU, "AU-VIC");
+            Assert.IsTrue(isPublicHoliday);
+
+            isPublicHoliday = HolidaySystem.IsPublicHoliday(new DateTime(2026, 3, 9), CountryCode.AU, "au-vic");
             Assert.IsTrue(isPublicHoliday);
         }
 

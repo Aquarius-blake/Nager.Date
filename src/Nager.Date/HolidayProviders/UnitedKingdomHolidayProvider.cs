@@ -157,6 +157,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.QueensPlatinumJubilee(year));
             holidaySpecifications.AddIfNotNull(this.QueensStateFuneral(year));
             holidaySpecifications.AddIfNotNull(this.CoronationBankHoliday(year));
+            holidaySpecifications.AddIfNotNull(this.WorldCupBankHoliday(year));
 
             return holidaySpecifications;
         }
@@ -176,7 +177,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 2),
                     EnglishName = name,
                     LocalName = name,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -188,7 +189,7 @@ namespace Nager.Date.HolidayProviders
                 Date = lastMondayInMay,
                 EnglishName = name,
                 LocalName = name,
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 
@@ -206,7 +207,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 3),
                     EnglishName = "Queen’s Platinum Jubilee",
                     LocalName = "Queen’s Platinum Jubilee",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -225,7 +226,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 19),
                     EnglishName = "Queen’s State Funeral",
                     LocalName = "Queen’s State Funeral",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -245,7 +246,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 8),
                     EnglishName = "Coronation Bank Holiday",
                     LocalName = "Coronation Bank Holiday",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -253,6 +254,27 @@ namespace Nager.Date.HolidayProviders
         }
 
         #endregion
+
+        private HolidaySpecification? WorldCupBankHoliday(int year)
+        {
+            if (year == 2026)
+            {
+                // Bank holiday to mark Scotland’s participation in the men's football World Cup finals
+                // https://www.gov.scot/news/world-cup-bank-holiday-confirmed
+
+                return new HolidaySpecification
+                {
+                    Id = "WORLDCUPBANKHOLIDAY-01",
+                    Date = new DateTime(year, 6, 15),
+                    EnglishName = "World Cup Bank Holiday",
+                    LocalName = "World Cup Bank Holiday",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["GB-SCT"]
+                };
+            }
+
+            return null;
+        }
 
         private HolidaySpecification EarlyMayBankHoliday(int year)
         {
@@ -268,7 +290,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 8),
                     EnglishName = holidayName,
                     LocalName = holidayName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
             else if (year == 2020)
@@ -283,7 +305,7 @@ namespace Nager.Date.HolidayProviders
                     Date = secondFridayInMay,
                     EnglishName = holidayName,
                     LocalName = holidayName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -295,7 +317,7 @@ namespace Nager.Date.HolidayProviders
                 Date = firstMondayInMay,
                 EnglishName = holidayName,
                 LocalName = holidayName,
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 

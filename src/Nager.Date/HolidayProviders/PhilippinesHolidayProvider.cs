@@ -4,6 +4,7 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Nager.Date.HolidayProviders
 {
@@ -27,8 +28,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var easterSunday = this._catholicProvider.EasterSunday(year);
-
             var lastMondayInAugust = DateHelper.FindLastDay(year, Month.August, DayOfWeek.Monday);
 
             var holidaySpecifications = new List<HolidaySpecification>
@@ -39,7 +38,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Bagong Taon",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -47,15 +46,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 4, 9),
                     EnglishName = "Day of Valor",
                     LocalName = "Araw ng Kagitingan",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Id = "MAUNDYTHURSDAY-01",
-                    Date = new DateTime(year, 4, 17),
-                    EnglishName = "Maundy Thursday",
-                    LocalName = "Huwebes Santo",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -63,7 +54,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Araw ng Paggawa",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -71,7 +62,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 12),
                     EnglishName = "Independence Day",
                     LocalName = "Araw ng Kalayaan",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -79,7 +70,7 @@ namespace Nager.Date.HolidayProviders
                     Date = lastMondayInAugust,
                     EnglishName = "National Heroes Day",
                     LocalName = "Araw ng mga Bayani",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -87,7 +78,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 11, 30),
                     EnglishName = "Bonifacio Day",
                     LocalName = "Araw ni Gat Andres Bonifacio",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -95,7 +86,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Araw ng Pasko",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -103,7 +94,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 30),
                     EnglishName = "Rizal Day",
                     LocalName = "Araw ng Kamatayan ni Dr. Jose Rizal",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
 
                 //special non-working holidays
@@ -113,7 +104,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 8, 21),
                     EnglishName = "Ninoy Aquino Day",
                     LocalName = "Araw ng Kamatayan ni Senador Benigno Simeon \"Ninoy\" Aquino Jr.",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -121,7 +112,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints' Day",
                     LocalName = "Araw ng mga Santo",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -129,7 +120,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Feast of the Immaculate Conception of Mary",
                     LocalName = "Kapistahan ng Immaculada Concepcion",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -137,15 +128,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 31),
                     EnglishName = "Last Day of The Year",
                     LocalName = "Huling Araw ng Taon",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Id = "CHINESENEWYEAR-01",
-                    Date = new DateTime(year, 1, 29),
-                    EnglishName = "Chinese New Year",
-                    LocalName = "Chinese New Year",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -153,7 +136,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 24),
                     EnglishName = "Christmas Eve",
                     LocalName = "Christmas Eve",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -161,16 +144,18 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 31),
                     EnglishName = "All Saints' Day Eve",
                     LocalName = "All Saints' Day Eve",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 
                 this._catholicProvider.GoodFriday("Biyernes Santo", year),
                 this._catholicProvider.EasterSaturday("Sabado de Gloria", year),
+                this._catholicProvider.MaundyThursday("Huwebes Santo", year),
             };
 
             holidaySpecifications.AddIfNotNull(this.Ramadhan(year));
             holidaySpecifications.AddIfNotNull(this.Election2025(year));
             holidaySpecifications.AddIfNotNull(this.EidlAdha(year));
+            holidaySpecifications.AddIfNotNull(this.ChineseNewYear(year));
             return holidaySpecifications;
         }
 
@@ -226,6 +211,42 @@ namespace Nager.Date.HolidayProviders
             }
 
             return null;
+        }
+
+        private HolidaySpecification? ChineseNewYear(int year)
+        {
+            var chineseCalendar = new ChineseLunisolarCalendar();
+            if (year > chineseCalendar.MinSupportedDateTime.Year && year < chineseCalendar.MaxSupportedDateTime.Year)
+            {
+                var leapMonth = chineseCalendar.GetLeapMonth(year);
+                var lunarNewYearDay = chineseCalendar.ToDateTime(year, this.MoveMonth(1, leapMonth), 1, 0, 0, 0, 0);
+
+                return new HolidaySpecification
+                {
+                    Id = "CHINESENEWYEAR-01",
+                    Date = lunarNewYearDay,
+                    EnglishName = "Chinese New Year",
+                    LocalName = "Chinese New Year",
+                    HolidayTypes = HolidayTypes.Public,
+                };
+            }
+
+            return null;
+        }
+
+        private int MoveMonth(int month, int leapMonth)
+        {
+            if (leapMonth == 0)
+            {
+                return month;
+            }
+
+            if (leapMonth < month)
+            {
+                return ++month;
+            }
+
+            return month;
         }
 
         /// <inheritdoc/>

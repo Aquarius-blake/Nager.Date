@@ -24,14 +24,19 @@ namespace Nager.Date.HolidayProviders
             var thirdMondayInJuly = DateHelper.FindDay(year, Month.July, DayOfWeek.Monday, Occurrence.Third);
             var thirdMondayInSeptember = DateHelper.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Third);
 
-            var observedRuleSet1 = new ObservedRuleSet
+            var observedRuleSet = new ObservedRuleSet
             {
                 Sunday = date => date.AddDays(1)
             };
 
-            var observedRuleSet2 = new ObservedRuleSet
+            var observedRuleSetShiftTwoDays = new ObservedRuleSet
             {
                 Sunday = date => date.AddDays(2)
+            };
+
+            var observedRuleSetShiftThreeDays = new ObservedRuleSet
+            {
+                Sunday = date => date.AddDays(3)
             };
 
             var holidaySpecifications = new List<HolidaySpecification>
@@ -43,7 +48,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "元日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -51,7 +56,7 @@ namespace Nager.Date.HolidayProviders
                     Date = secondMondayInJanuary,
                     EnglishName = "Coming of Age Day",
                     LocalName = "成人の日",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -60,7 +65,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Foundation Day",
                     LocalName = "建国記念の日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -69,7 +74,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Shōwa Day",
                     LocalName = "昭和の日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -78,7 +83,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Constitution Memorial Day",
                     LocalName = "憲法記念日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = observedRuleSetShiftThreeDays
                 },
                 new HolidaySpecification
                 {
@@ -87,7 +92,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Greenery Day",
                     LocalName = "みどりの日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet2
+                    ObservedRuleSet = observedRuleSetShiftTwoDays
                 },
                 new HolidaySpecification
                 {
@@ -96,7 +101,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Children's Day",
                     LocalName = "こどもの日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -104,7 +109,7 @@ namespace Nager.Date.HolidayProviders
                     Date = thirdMondayInJuly,
                     EnglishName = "Marine Day",
                     LocalName = "海の日",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -113,7 +118,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Mountain Day",
                     LocalName = "山の日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -121,7 +126,7 @@ namespace Nager.Date.HolidayProviders
                     Date = thirdMondayInSeptember,
                     EnglishName = "Respect for the Aged Day",
                     LocalName = "敬老の日",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -130,7 +135,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Culture Day",
                     LocalName = "文化の日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -139,7 +144,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Labour Thanksgiving Day",
                     LocalName = "勤労感謝の日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = observedRuleSet
                 }
             };
 
@@ -229,7 +234,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 10),
                     EnglishName = "Health and Sports Day",
                     LocalName = "体育の日",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
             else if (year >= 2000 && year < 2020)
@@ -242,7 +247,7 @@ namespace Nager.Date.HolidayProviders
                     Date = secondMondayInOctober,
                     EnglishName = "Health and Sports Day",
                     LocalName = "体育の日",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
             else if (year == 2020)
@@ -253,7 +258,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 07, 24),
                     EnglishName = "Sports Day",
                     LocalName = "スポーツの日",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
             else if (year ==  2021)
@@ -264,7 +269,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 07, 23),
                     EnglishName = "Sports Day",
                     LocalName = "スポーツの日",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
             else if (year >= 2022)
@@ -277,7 +282,7 @@ namespace Nager.Date.HolidayProviders
                     Date = secondMondayInOctober,
                     EnglishName = "Sports Day",
                     LocalName = "スポーツの日",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -316,7 +321,7 @@ namespace Nager.Date.HolidayProviders
                 Date = new DateTime(year, 3, (int)equinoxDay),
                 EnglishName = "Vernal Equinox Day",
                 LocalName = "春分の日",
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 
@@ -352,7 +357,7 @@ namespace Nager.Date.HolidayProviders
                 Date = new DateTime(year, 9, (int)equinoxDay),
                 EnglishName = "Autumnal Equinox Day",
                 LocalName = "秋分の日",
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 

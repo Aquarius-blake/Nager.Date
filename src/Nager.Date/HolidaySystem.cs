@@ -1,5 +1,6 @@
 using Nager.Date.Helpers;
 using Nager.Date.HolidayProviders;
+using Nager.Date.License;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -22,19 +23,30 @@ namespace Nager.Date
             new Dictionary<CountryCode, Lazy<IHolidayProvider>>
             {
                 { CountryCode.AD, new Lazy<IHolidayProvider>(() => new AndorraHolidayProvider(_catholicProvider))},
+                { CountryCode.AG, new Lazy<IHolidayProvider>(() => new AntiguaAndBarbudaHolidayProvider(_catholicProvider))},
+                { CountryCode.AI, new Lazy<IHolidayProvider>(() => new AnguillaHolidayProvider(_catholicProvider))},
                 { CountryCode.AL, new Lazy<IHolidayProvider>(() => new AlbaniaHolidayProvider(_catholicProvider, _orthodoxProvider))},
                 { CountryCode.AM, new Lazy<IHolidayProvider>(() => new ArmeniaHolidayProvider(_catholicProvider))},
-                { CountryCode.AR, new Lazy<IHolidayProvider>(() => new ArgentinaHolidayProvider(_catholicProvider))},
+                { CountryCode.AO, new Lazy<IHolidayProvider>(() => new AngolaHolidayProvider(_catholicProvider))},
                 { CountryCode.AQ, new Lazy<IHolidayProvider>(() => new AntarcticaHolidayProvider())},
+                { CountryCode.AR, new Lazy<IHolidayProvider>(() => new ArgentinaHolidayProvider(_catholicProvider))},
                 { CountryCode.AT, new Lazy<IHolidayProvider>(() => new AustriaHolidayProvider(_catholicProvider))},
                 { CountryCode.AU, new Lazy<IHolidayProvider>(() => new AustraliaHolidayProvider(_catholicProvider))},
+                { CountryCode.AW, new Lazy<IHolidayProvider>(() => new ArubaHolidayProvider(_catholicProvider))},
                 { CountryCode.AX, new Lazy<IHolidayProvider>(() => new AlandHolidayProvider(_catholicProvider))},
                 { CountryCode.BA, new Lazy<IHolidayProvider>(() => new BosniaAndHerzegovinaHolidayProvider(_orthodoxProvider))},
                 { CountryCode.BB, new Lazy<IHolidayProvider>(() => new BarbadosHolidayProvider(_catholicProvider))},
+                { CountryCode.BD, new Lazy<IHolidayProvider>(() => new BangladeshHolidayProvider())},
                 { CountryCode.BE, new Lazy<IHolidayProvider>(() => new BelgiumHolidayProvider(_catholicProvider))},
+                { CountryCode.BF, new Lazy<IHolidayProvider>(() => new BurkinaFasoHolidayProvider(_catholicProvider))},
                 { CountryCode.BG, new Lazy<IHolidayProvider>(() => new BulgariaHolidayProvider(_orthodoxProvider))},
+                { CountryCode.BH, new Lazy<IHolidayProvider>(() => new BahrainHolidayProvider())},
+                { CountryCode.BI, new Lazy<IHolidayProvider>(() => new BurundiHolidayProvider(_catholicProvider))},
                 { CountryCode.BJ, new Lazy<IHolidayProvider>(() => new BeninHolidayProvider(_catholicProvider))},
+                { CountryCode.BL, new Lazy<IHolidayProvider>(() => new SaintBarthelemyHolidayProvider(_catholicProvider))},
+                { CountryCode.BM, new Lazy<IHolidayProvider>(() => new BermudaHolidayProvider(_catholicProvider))},
                 { CountryCode.BO, new Lazy<IHolidayProvider>(() => new BoliviaHolidayProvider(_catholicProvider))},
+                { CountryCode.BQ, new Lazy<IHolidayProvider>(() => new CaribbeanNetherlandsHolidayProvider(_catholicProvider))},
                 { CountryCode.BR, new Lazy<IHolidayProvider>(() => new BrazilHolidayProvider(_catholicProvider))},
                 { CountryCode.BS, new Lazy<IHolidayProvider>(() => new BahamasHolidayProvider(_catholicProvider))},
                 { CountryCode.BV, new Lazy<IHolidayProvider>(() => new BouvetIslandHolidayProvider())},
@@ -42,38 +54,58 @@ namespace Nager.Date
                 { CountryCode.BY, new Lazy<IHolidayProvider>(() => new BelarusHolidayProvider(_orthodoxProvider))},
                 { CountryCode.BZ, new Lazy<IHolidayProvider>(() => new BelizeHolidayProvider(_catholicProvider))},
                 { CountryCode.CA, new Lazy<IHolidayProvider>(() => new CanadaHolidayProvider(_catholicProvider))},
+                { CountryCode.CC, new Lazy<IHolidayProvider>(() => new CocosIslandsHolidayProvider(_catholicProvider))},
                 { CountryCode.CD, new Lazy<IHolidayProvider>(() => new DemocraticRepublicOfCongoHolidayProvider())},
+                { CountryCode.CF, new Lazy<IHolidayProvider>(() => new CentralAfricanRepublicHolidayProvider(_catholicProvider))},
                 { CountryCode.CG, new Lazy<IHolidayProvider>(() => new RepublicOfCongoHolidayProvider(_catholicProvider))},
                 { CountryCode.CH, new Lazy<IHolidayProvider>(() => new SwitzerlandHolidayProvider(_catholicProvider))},
+                { CountryCode.CI, new Lazy<IHolidayProvider>(() => new IvoryCoastHolidayProvider(_catholicProvider))},
+                { CountryCode.CK, new Lazy<IHolidayProvider>(() => new CookIslandsHolidayProvider(_catholicProvider))},
                 { CountryCode.CL, new Lazy<IHolidayProvider>(() => new ChileHolidayProvider(_catholicProvider))},
+                { CountryCode.CM, new Lazy<IHolidayProvider>(() => new CameroonHolidayProvider(_catholicProvider))},
                 { CountryCode.CN, new Lazy<IHolidayProvider>(() => new ChinaHolidayProvider())},
                 { CountryCode.CO, new Lazy<IHolidayProvider>(() => new ColombiaHolidayProvider(_catholicProvider))},
                 { CountryCode.CR, new Lazy<IHolidayProvider>(() => new CostaRicaHolidayProvider(_catholicProvider))},
                 { CountryCode.CU, new Lazy<IHolidayProvider>(() => new CubaHolidayProvider(_catholicProvider))},
+                { CountryCode.CV, new Lazy<IHolidayProvider>(() => new CaboVerdeHolidayProvider())},
+                { CountryCode.CW, new Lazy<IHolidayProvider>(() => new CuracaoHolidayProvider(_catholicProvider))},
+                { CountryCode.CX, new Lazy<IHolidayProvider>(() => new ChristmasIslandHolidayProvider(_catholicProvider))},
                 { CountryCode.CY, new Lazy<IHolidayProvider>(() => new CyprusHolidayProvider(_orthodoxProvider))},
                 { CountryCode.CZ, new Lazy<IHolidayProvider>(() => new CzechRepublicHolidayProvider(_catholicProvider))},
                 { CountryCode.DE, new Lazy<IHolidayProvider>(() => new GermanyHolidayProvider(_catholicProvider))},
+                { CountryCode.DJ, new Lazy<IHolidayProvider>(() => new DjiboutiHolidayProvider())},
                 { CountryCode.DK, new Lazy<IHolidayProvider>(() => new DenmarkHolidayProvider(_catholicProvider))},
+                { CountryCode.DM, new Lazy<IHolidayProvider>(() => new DominicaHolidayProvider(_catholicProvider))},
                 { CountryCode.DO, new Lazy<IHolidayProvider>(() => new DominicanRepublicHolidayProvider(_catholicProvider))},
+                { CountryCode.DZ, new Lazy<IHolidayProvider>(() => new AlgeriaHolidayProvider())},
                 { CountryCode.EC, new Lazy<IHolidayProvider>(() => new EcuadorHolidayProvider(_catholicProvider))},
                 { CountryCode.EE, new Lazy<IHolidayProvider>(() => new EstoniaHolidayProvider(_catholicProvider))},
-                { CountryCode.EG, new Lazy<IHolidayProvider>(() => new EgyptHolidayProvider())},
+                { CountryCode.EG, new Lazy<IHolidayProvider>(() => new EgyptHolidayProvider(_orthodoxProvider))},
+                { CountryCode.ER, new Lazy<IHolidayProvider>(() => new EritreaHolidayProvider(_catholicProvider))},
                 { CountryCode.ES, new Lazy<IHolidayProvider>(() => new SpainHolidayProvider(_catholicProvider))},
+                { CountryCode.ET, new Lazy<IHolidayProvider>(() => new EthiopiaHolidayProvider(_orthodoxProvider))},
                 { CountryCode.FI, new Lazy<IHolidayProvider>(() => new FinlandHolidayProvider(_catholicProvider))},
+                { CountryCode.FK, new Lazy<IHolidayProvider>(() => new FalklandIslandsHolidayProvider(_catholicProvider))},
+                { CountryCode.FM, new Lazy<IHolidayProvider>(() => new MicronesiaHolidayProvider(_catholicProvider))},
                 { CountryCode.FO, new Lazy<IHolidayProvider>(() => new FaroeIslandsHolidayProvider(_catholicProvider))},
                 { CountryCode.FR, new Lazy<IHolidayProvider>(() => new FranceHolidayProvider(_catholicProvider))},
                 { CountryCode.GA, new Lazy<IHolidayProvider>(() => new GabonHolidayProvider(_catholicProvider))},
                 { CountryCode.GB, new Lazy<IHolidayProvider>(() => new UnitedKingdomHolidayProvider(_catholicProvider))},
                 { CountryCode.GD, new Lazy<IHolidayProvider>(() => new GrenadaHolidayProvider(_catholicProvider))},
                 { CountryCode.GE, new Lazy<IHolidayProvider>(() => new GeorgiaHolidayProvider(_orthodoxProvider))},
+                { CountryCode.GF, new Lazy<IHolidayProvider>(() => new FrenchGuianaHolidayProvider(_catholicProvider))},
+                { CountryCode.GG, new Lazy<IHolidayProvider>(() => new GuernseyHolidayProvider(_catholicProvider))},
                 { CountryCode.GH, new Lazy<IHolidayProvider>(() => new GhanaHolidayProvider(_catholicProvider))},
                 { CountryCode.GI, new Lazy<IHolidayProvider>(() => new GibraltarHolidayProvider(_catholicProvider))},
                 { CountryCode.GL, new Lazy<IHolidayProvider>(() => new GreenlandHolidayProvider(_catholicProvider))},
                 { CountryCode.GM, new Lazy<IHolidayProvider>(() => new GambiaHolidayProvider(_catholicProvider))},
+                { CountryCode.GN, new Lazy<IHolidayProvider>(() => new GuineaHolidayProvider(_catholicProvider))},
+                { CountryCode.GP, new Lazy<IHolidayProvider>(() => new GuadeloupeHolidayProvider(_catholicProvider))},
+                { CountryCode.GQ, new Lazy<IHolidayProvider>(() => new EquatorialGuineaHolidayProvider(_catholicProvider))},
                 { CountryCode.GR, new Lazy<IHolidayProvider>(() => new GreeceHolidayProvider(_orthodoxProvider))},
                 { CountryCode.GS, new Lazy<IHolidayProvider>(() => new SouthGeorgiaHolidayProvider())},
                 { CountryCode.GT, new Lazy<IHolidayProvider>(() => new GuatemalaHolidayProvider(_catholicProvider))},
-                { CountryCode.GG, new Lazy<IHolidayProvider>(() => new GuernseyHolidayProvider(_catholicProvider))},
+                { CountryCode.GW, new Lazy<IHolidayProvider>(() => new GuineaBissauHolidayProvider(_catholicProvider))},
                 { CountryCode.GY, new Lazy<IHolidayProvider>(() => new GuyanaHolidayProvider(_catholicProvider))},
                 { CountryCode.HK, new Lazy<IHolidayProvider>(() => new HongKongHolidayProvider(_catholicProvider))},
                 { CountryCode.HM, new Lazy<IHolidayProvider>(() => new HeardIslandAndMcDonaldIslandsHolidayProvider())},
@@ -81,75 +113,130 @@ namespace Nager.Date
                 { CountryCode.HR, new Lazy<IHolidayProvider>(() => new CroatiaHolidayProvider(_catholicProvider))},
                 { CountryCode.HT, new Lazy<IHolidayProvider>(() => new HaitiHolidayProvider(_catholicProvider))},
                 { CountryCode.HU, new Lazy<IHolidayProvider>(() => new HungaryHolidayProvider(_catholicProvider))},
-                { CountryCode.IE, new Lazy<IHolidayProvider>(() => new IrelandHolidayProvider(_catholicProvider))},
                 { CountryCode.ID, new Lazy<IHolidayProvider>(() => new IndonesiaHolidayProvider(_catholicProvider))},
+                { CountryCode.IE, new Lazy<IHolidayProvider>(() => new IrelandHolidayProvider(_catholicProvider))},
                 { CountryCode.IM, new Lazy<IHolidayProvider>(() => new IsleOfManHolidayProvider(_catholicProvider))},
+                { CountryCode.IQ, new Lazy<IHolidayProvider>(() => new IraqHolidayProvider())},
                 { CountryCode.IS, new Lazy<IHolidayProvider>(() => new IcelandHolidayProvider(_catholicProvider))},
                 { CountryCode.IT, new Lazy<IHolidayProvider>(() => new ItalyHolidayProvider(_catholicProvider))},
-                { CountryCode.LI, new Lazy<IHolidayProvider>(() => new LiechtensteinHolidayProvider(_catholicProvider))},
-                { CountryCode.LS, new Lazy<IHolidayProvider>(() => new LesothoHolidayProvider(_catholicProvider))},
-                { CountryCode.LT, new Lazy<IHolidayProvider>(() => new LithuaniaHolidayProvider(_catholicProvider))},
-                { CountryCode.LU, new Lazy<IHolidayProvider>(() => new LuxembourgHolidayProvider(_catholicProvider))},
-                { CountryCode.LV, new Lazy<IHolidayProvider>(() => new LatviaHolidayProvider(_catholicProvider))},
                 { CountryCode.JE, new Lazy<IHolidayProvider>(() => new JerseyHolidayProvider(_catholicProvider))},
                 { CountryCode.JM, new Lazy<IHolidayProvider>(() => new JamaicaHolidayProvider(_catholicProvider))},
                 { CountryCode.JP, new Lazy<IHolidayProvider>(() => new JapanHolidayProvider())},
                 { CountryCode.KE, new Lazy<IHolidayProvider>(() => new KenyaHolidayProvider(_catholicProvider))},
+                { CountryCode.KH, new Lazy<IHolidayProvider>(() => new CambodiaHolidayProvider())},
+                { CountryCode.KI, new Lazy<IHolidayProvider>(() => new KiribatiHolidayProvider(_catholicProvider))},
+                { CountryCode.KM, new Lazy<IHolidayProvider>(() => new ComorosHolidayProvider())},
+                { CountryCode.KN, new Lazy<IHolidayProvider>(() => new SaintKittsAndNevisHolidayProvider(_catholicProvider))},
                 { CountryCode.KR, new Lazy<IHolidayProvider>(() => new SouthKoreaHolidayProvider())},
+                { CountryCode.KY, new Lazy<IHolidayProvider>(() => new CaymanIslandsHolidayProvider(_catholicProvider))},
                 { CountryCode.KZ, new Lazy<IHolidayProvider>(() => new KazakhstanHolidayProvider(_orthodoxProvider))},
+                { CountryCode.LC, new Lazy<IHolidayProvider>(() => new SaintLuciaHolidayProvider(_catholicProvider))},
+                { CountryCode.LI, new Lazy<IHolidayProvider>(() => new LiechtensteinHolidayProvider(_catholicProvider))},
+                { CountryCode.LR, new Lazy<IHolidayProvider>(() => new LiberiaHolidayProvider())},
+                { CountryCode.LS, new Lazy<IHolidayProvider>(() => new LesothoHolidayProvider(_catholicProvider))},
+                { CountryCode.LT, new Lazy<IHolidayProvider>(() => new LithuaniaHolidayProvider(_catholicProvider))},
+                { CountryCode.LU, new Lazy<IHolidayProvider>(() => new LuxembourgHolidayProvider(_catholicProvider))},
+                { CountryCode.LV, new Lazy<IHolidayProvider>(() => new LatviaHolidayProvider(_catholicProvider))},
+                { CountryCode.LY, new Lazy<IHolidayProvider>(() => new LibyaHolidayProvider())},
                 { CountryCode.MA, new Lazy<IHolidayProvider>(() => new MoroccoHolidayProvider())},
                 { CountryCode.MC, new Lazy<IHolidayProvider>(() => new MonacoHolidayProvider(_catholicProvider))},
                 { CountryCode.MD, new Lazy<IHolidayProvider>(() => new MoldovaHolidayProvider(_orthodoxProvider))},
                 { CountryCode.ME, new Lazy<IHolidayProvider>(() => new MontenegroHolidayProvider(_orthodoxProvider, _catholicProvider))},
+                { CountryCode.MF, new Lazy<IHolidayProvider>(() => new SaintMartinHolidayProvider(_catholicProvider))},
                 { CountryCode.MG, new Lazy<IHolidayProvider>(() => new MadagascarHolidayProvider(_catholicProvider))},
+                { CountryCode.MH, new Lazy<IHolidayProvider>(() => new MarshallIslandsHolidayProvider(_catholicProvider))},
                 { CountryCode.MK, new Lazy<IHolidayProvider>(() => new MacedoniaHolidayProvider(_orthodoxProvider))},
+                { CountryCode.ML, new Lazy<IHolidayProvider>(() => new MaliHolidayProvider(_catholicProvider))},
                 { CountryCode.MN, new Lazy<IHolidayProvider>(() => new MongoliaHolidayProvider())},
+                { CountryCode.MP, new Lazy<IHolidayProvider>(() => new NorthernMarianaIslandsHolidayProvider(_catholicProvider))},
+                { CountryCode.MQ, new Lazy<IHolidayProvider>(() => new MartiniqueHolidayProvider(_catholicProvider))},
+                { CountryCode.MR, new Lazy<IHolidayProvider>(() => new MauritaniaHolidayProvider())},
                 { CountryCode.MS, new Lazy<IHolidayProvider>(() => new MontserratHolidayProvider(_catholicProvider))},
                 { CountryCode.MT, new Lazy<IHolidayProvider>(() => new MaltaHolidayProvider(_catholicProvider))},
+                { CountryCode.MW, new Lazy<IHolidayProvider>(() => new MalawiHolidayProvider(_catholicProvider))},
                 { CountryCode.MX, new Lazy<IHolidayProvider>(() => new MexicoHolidayProvider(_catholicProvider))},
                 { CountryCode.MZ, new Lazy<IHolidayProvider>(() => new MozambiqueHolidayProvider())},
                 { CountryCode.NA, new Lazy<IHolidayProvider>(() => new NamibiaHolidayProvider(_catholicProvider))},
+                { CountryCode.NC, new Lazy<IHolidayProvider>(() => new NewCaledoniaHolidayProvider(_catholicProvider))},
                 { CountryCode.NE, new Lazy<IHolidayProvider>(() => new NigerHolidayProvider(_catholicProvider))},
+                { CountryCode.NF, new Lazy<IHolidayProvider>(() => new NorfolkIslandHolidayProvider(_catholicProvider))},
                 { CountryCode.NG, new Lazy<IHolidayProvider>(() => new NigeriaHolidayProvider(_catholicProvider)) },
                 { CountryCode.NI, new Lazy<IHolidayProvider>(() => new NicaraguaHolidayProvider(_catholicProvider))},
                 { CountryCode.NL, new Lazy<IHolidayProvider>(() => new NetherlandsHolidayProvider(_catholicProvider))},
                 { CountryCode.NO, new Lazy<IHolidayProvider>(() => new NorwayHolidayProvider(_catholicProvider))},
+                { CountryCode.NR, new Lazy<IHolidayProvider>(() => new NauruHolidayProvider(_catholicProvider))},
+                { CountryCode.NU, new Lazy<IHolidayProvider>(() => new NiueHolidayProvider(_catholicProvider))},
                 { CountryCode.NZ, new Lazy<IHolidayProvider>(() => new NewZealandHolidayProvider(_catholicProvider))},
                 { CountryCode.PA, new Lazy<IHolidayProvider>(() => new PanamaHolidayProvider(_catholicProvider))},
                 { CountryCode.PE, new Lazy<IHolidayProvider>(() => new PeruHolidayProvider(_catholicProvider))},
+                { CountryCode.PF, new Lazy<IHolidayProvider>(() => new FrenchPolynesiaHolidayProvider(_catholicProvider))},
                 { CountryCode.PG, new Lazy<IHolidayProvider>(() => new PapuaNewGuineaHolidayProvider(_catholicProvider))},
                 { CountryCode.PH, new Lazy<IHolidayProvider>(() => new PhilippinesHolidayProvider(_catholicProvider))},
                 { CountryCode.PL, new Lazy<IHolidayProvider>(() => new PolandHolidayProvider(_catholicProvider))},
+                { CountryCode.PM, new Lazy<IHolidayProvider>(() => new SaintPierreAndMiquelonHolidayProvider(_catholicProvider))},
+                { CountryCode.PN, new Lazy<IHolidayProvider>(() => new PitcairnIslandsHolidayProvider(_catholicProvider))},
                 { CountryCode.PR, new Lazy<IHolidayProvider>(() => new PuertoRicoHolidayProvider(_catholicProvider))},
                 { CountryCode.PT, new Lazy<IHolidayProvider>(() => new PortugalHolidayProvider(_catholicProvider))},
+                { CountryCode.PW, new Lazy<IHolidayProvider>(() => new PalauHolidayProvider())},
                 { CountryCode.PY, new Lazy<IHolidayProvider>(() => new ParaguayHolidayProvider(_catholicProvider))},
                 { CountryCode.RO, new Lazy<IHolidayProvider>(() => new RomaniaHolidayProvider(_orthodoxProvider))},
                 { CountryCode.RS, new Lazy<IHolidayProvider>(() => new SerbiaHolidayProvider(_orthodoxProvider))},
                 { CountryCode.RU, new Lazy<IHolidayProvider>(() => new RussiaHolidayProvider())},
+                { CountryCode.RW, new Lazy<IHolidayProvider>(() => new RwandaHolidayProvider(_catholicProvider))},
+                { CountryCode.SB, new Lazy<IHolidayProvider>(() => new SolomonIslandsHolidayProvider(_catholicProvider))},
+                { CountryCode.SC, new Lazy<IHolidayProvider>(() => new SeychellesHolidayProvider(_catholicProvider))},
+                { CountryCode.SD, new Lazy<IHolidayProvider>(() => new SudanHolidayProvider(_orthodoxProvider))},
                 { CountryCode.SE, new Lazy<IHolidayProvider>(() => new SwedenHolidayProvider(_catholicProvider))},
                 { CountryCode.SG, new Lazy<IHolidayProvider>(() => new SingaporeHolidayProvider(_catholicProvider))},
+                { CountryCode.SH, new Lazy<IHolidayProvider>(() => new SaintHelenaAscensionTristanDaCunhaHolidayProvider(_catholicProvider))},
                 { CountryCode.SI, new Lazy<IHolidayProvider>(() => new SloveniaHolidayProvider(_catholicProvider))},
                 { CountryCode.SJ, new Lazy<IHolidayProvider>(() => new SvalbardAndJanMayenHolidayProvider(_catholicProvider))},
                 { CountryCode.SK, new Lazy<IHolidayProvider>(() => new SlovakiaHolidayProvider(_catholicProvider))},
+                { CountryCode.SL, new Lazy<IHolidayProvider>(() => new SierraLeoneHolidayProvider(_catholicProvider))},
                 { CountryCode.SM, new Lazy<IHolidayProvider>(() => new SanMarinoHolidayProvider(_catholicProvider))},
+                { CountryCode.SN, new Lazy<IHolidayProvider>(() => new SenegalHolidayProvider(_catholicProvider))},
+                { CountryCode.SO, new Lazy<IHolidayProvider>(() => new SomaliaHolidayProvider())},
                 { CountryCode.SR, new Lazy<IHolidayProvider>(() => new SurinameHolidayProvider(_catholicProvider))},
+                { CountryCode.SS, new Lazy<IHolidayProvider>(() => new SouthSudanHolidayProvider(_catholicProvider))},
+                { CountryCode.ST, new Lazy<IHolidayProvider>(() => new SaoTomeAndPrincipeHolidayProvider())},
                 { CountryCode.SV, new Lazy<IHolidayProvider>(() => new ElSalvadorHolidayProvider(_catholicProvider))},
+                { CountryCode.SX, new Lazy<IHolidayProvider>(() => new SintMaartenHolidayProvider(_catholicProvider))},
+                { CountryCode.SY, new Lazy<IHolidayProvider>(() => new SyriaHolidayProvider(_catholicProvider, _orthodoxProvider))},
+                { CountryCode.SZ, new Lazy<IHolidayProvider>(() => new EswatiniHolidayProvider(_catholicProvider))},
+                { CountryCode.TC, new Lazy<IHolidayProvider>(() => new TurksAndCaicosIslandsHolidayProvider(_catholicProvider))},
+                { CountryCode.TD, new Lazy<IHolidayProvider>(() => new ChadHolidayProvider(_catholicProvider))},
                 { CountryCode.TF, new Lazy<IHolidayProvider>(() => new FrenchSouthernAndAntarcticLandsHolidayProvider())},
+                { CountryCode.TG, new Lazy<IHolidayProvider>(() => new TogoHolidayProvider(_catholicProvider))},
+                { CountryCode.TK, new Lazy<IHolidayProvider>(() => new TokelauHolidayProvider(_catholicProvider))},
                 { CountryCode.TN, new Lazy<IHolidayProvider>(() => new TunisiaHolidayProvider())},
-                { CountryCode.TR, new Lazy<IHolidayProvider>(() => new TurkeyHolidayProvider())},
+                { CountryCode.TO, new Lazy<IHolidayProvider>(() => new TongaHolidayProvider(_catholicProvider))},
+                { CountryCode.TR, new Lazy<IHolidayProvider>(() => new TuerkiyeHolidayProvider())},
+                { CountryCode.TT, new Lazy<IHolidayProvider>(() => new TrinidadAndTobagoHolidayProvider(_catholicProvider))},
+                { CountryCode.TV, new Lazy<IHolidayProvider>(() => new TuvaluHolidayProvider(_catholicProvider))},
+                { CountryCode.TZ, new Lazy<IHolidayProvider>(() => new TanzaniaHolidayProvider(_catholicProvider))},
                 { CountryCode.UA, new Lazy<IHolidayProvider>(() => new UkraineHolidayProvider(_orthodoxProvider))},
+                { CountryCode.UG, new Lazy<IHolidayProvider>(() => new UgandaHolidayProvider(_catholicProvider))},
+                { CountryCode.UM, new Lazy<IHolidayProvider>(() => new UnitedStatesMinorOutlyingIslandsHolidayProvider())},
                 { CountryCode.US, new Lazy<IHolidayProvider>(() => new UnitedStatesHolidayProvider(_catholicProvider))},
                 { CountryCode.UY, new Lazy<IHolidayProvider>(() => new UruguayHolidayProvider(_catholicProvider))},
                 { CountryCode.VA, new Lazy<IHolidayProvider>(() => new VaticanCityHolidayProvider(_catholicProvider))},
+                { CountryCode.VC, new Lazy<IHolidayProvider>(() => new SaintVincentAndTheGrenadinesHolidayProvider(_catholicProvider))},
                 { CountryCode.VE, new Lazy<IHolidayProvider>(() => new VenezuelaHolidayProvider(_catholicProvider))},
+                { CountryCode.VG, new Lazy<IHolidayProvider>(() => new BritishVirginIslandsHolidayProvider(_catholicProvider))},
+                { CountryCode.VI, new Lazy<IHolidayProvider>(() => new UnitedStatesVirginIslandsHolidayProvider(_catholicProvider))},
                 { CountryCode.VN, new Lazy<IHolidayProvider>(() => new VietnamHolidayProvider())},
+                { CountryCode.VU, new Lazy<IHolidayProvider>(() => new VanuatuHolidayProvider(_catholicProvider))},
+                { CountryCode.WF, new Lazy<IHolidayProvider>(() => new WallisAndFutunaHolidayProvider(_catholicProvider))},
+                { CountryCode.WS, new Lazy<IHolidayProvider>(() => new SamoaHolidayProvider(_catholicProvider))},
                 //Not officially assigned https://www.iso.org/obp/ui/#iso:pub:PUB500001:en
                 //{ CountryCode.XK, new Lazy<IPublicHolidayProvider>(() => new KosovoProvider(_orthodoxProvider, _catholicProvider))},
+                { CountryCode.YE, new Lazy<IHolidayProvider>(() => new YemenHolidayProvider())},
                 { CountryCode.ZA, new Lazy<IHolidayProvider>(() => new SouthAfricaHolidayProvider(_catholicProvider))},
+                { CountryCode.ZM, new Lazy<IHolidayProvider>(() => new ZambiaHolidayProvider(_catholicProvider))},
                 { CountryCode.ZW, new Lazy<IHolidayProvider>(() => new ZimbabweHolidayProvider(_catholicProvider))}
             };
 
-        private static LicenseCheckStatus _licenseCheckStatus = LicenseCheckStatus.NotChecked;
+        private static LicenseStatus _licenseStatus = LicenseStatus.NotChecked;
 
         /// <summary>
         /// License Key
@@ -164,24 +251,24 @@ namespace Nager.Date
         {
             if (string.IsNullOrEmpty(licenseKey))
             {
-                _licenseCheckStatus = LicenseCheckStatus.NotConfigured;
+                _licenseStatus = LicenseStatus.NotConfigured;
                 return;
             }
 
             var licenseInfo = LicenseHelper.CheckLicenseKey(licenseKey);
             if (licenseInfo is null)
             {
-                _licenseCheckStatus = LicenseCheckStatus.Invalid;
+                _licenseStatus = LicenseStatus.Invalid;
                 return;
             }
 
             if (licenseInfo.ValidUntil < DateTime.Today)
             {
-                _licenseCheckStatus = LicenseCheckStatus.Expired;
+                _licenseStatus = LicenseStatus.Expired;
                 return;
             }
 
-            _licenseCheckStatus = LicenseCheckStatus.Valid;
+            _licenseStatus = LicenseStatus.Valid;
         }
 
         /// <summary>
@@ -227,20 +314,20 @@ namespace Nager.Date
             CountryCode countryCode,
             out IHolidayProvider holidayProvider)
         {
-            if (_licenseCheckStatus == LicenseCheckStatus.NotChecked)
+            if (_licenseStatus == LicenseStatus.NotChecked)
             {
                 CheckLicense(LicenseKey);
             }
 
-            switch (_licenseCheckStatus)
+            switch (_licenseStatus)
             {
-                case LicenseCheckStatus.Valid:
+                case LicenseStatus.Valid:
                     break;
-                case LicenseCheckStatus.NotConfigured:
+                case LicenseStatus.NotConfigured:
                     throw new LicenseKeyException("No LicenseKey");
-                case LicenseCheckStatus.Invalid:
+                case LicenseStatus.Invalid:
                     throw new LicenseKeyException("Invalid LicenseKey");
-                case LicenseCheckStatus.Expired:
+                case LicenseStatus.Expired:
                     throw new LicenseKeyException("Expired LicenseKey");
                 default:
                     throw new LicenseKeyException("Unknown LicenseKey Check Status");
@@ -380,9 +467,10 @@ namespace Nager.Date
             HolidayTypes holidayTypes,
             string? subdivisionCodes = null)
         {
-            return o => o.ObservedDate == date.Date
-                        && (o.SubdivisionCodes is null || subdivisionCodes is not null && o.SubdivisionCodes.Contains(subdivisionCodes))
-                        && o.HolidayTypes.HasFlag(holidayTypes);
+            return o => o.ObservedDate == date.Date &&
+                        (o.SubdivisionCodes is null || subdivisionCodes is not null &&
+                        o.SubdivisionCodes.Contains(subdivisionCodes, StringComparer.OrdinalIgnoreCase)) &&
+                        o.HolidayTypes.HasFlag(holidayTypes);
         }
 
         /// <summary>
@@ -457,7 +545,8 @@ namespace Nager.Date
             }
 
             var provider = GetHolidayProvider(countryCode);
-            if (provider is ISubdivisionCodesProvider countryProvider && !countryProvider.GetSubdivisionCodes().ContainsKey(subdivisionCode))
+            if (provider is ISubdivisionCodesProvider countryProvider &&
+                !countryProvider.GetSubdivisionCodes().Keys.Contains(subdivisionCode, StringComparer.OrdinalIgnoreCase))
             {
                 throw new ArgumentException($"Invalid {nameof(subdivisionCode)} {subdivisionCode}");
             }

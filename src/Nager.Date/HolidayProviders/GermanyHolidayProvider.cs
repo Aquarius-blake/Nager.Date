@@ -58,7 +58,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Neujahr",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -75,7 +75,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Tag der Arbeit",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -92,7 +92,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 3),
                     EnglishName = "German Unity Day",
                     LocalName = "Tag der Deutschen Einheit",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -109,7 +109,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Erster Weihnachtstag",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -117,7 +117,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Zweiter Weihnachtstag",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 this._catholicProvider.GoodFriday("Karfreitag", year),
                 this._catholicProvider.EasterSunday("Ostersonntag", year).SetSubdivisionCodes("DE-BB"),
@@ -133,6 +133,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.LiberationDay(year));
             holidaySpecifications.AddIfNotNull(this.ReformationDay(year));
             holidaySpecifications.AddIfNotNull(this.WorldChildrensDay(year));
+            holidaySpecifications.AddIfNotNull(this.UprisingOfJune171953(year));
 
             return holidaySpecifications;
         }
@@ -206,7 +207,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 31),
                     EnglishName = englishName,
                     LocalName = localName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -243,7 +244,7 @@ namespace Nager.Date.HolidayProviders
                     Date = dayOfPrayer,
                     EnglishName = englishName,
                     LocalName = localName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
             else if (year >= 1945 && year <= 1980)
@@ -278,7 +279,7 @@ namespace Nager.Date.HolidayProviders
                     Date = dayOfPrayer,
                     EnglishName = englishName,
                     LocalName = localName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
             else if (year >= 1995)
@@ -322,7 +323,7 @@ namespace Nager.Date.HolidayProviders
                 return new HolidaySpecification
                 {
                     Id = "75THANNIVERSARYOFTHEUPRISING-01",
-                    Date = new DateTime(year, 5, 8),
+                    Date = new DateTime(year, 6, 17),
                     EnglishName = "75th anniversary of the uprising of June 17, 1953",
                     LocalName = "75. Jahrestag des Aufstandes vom 17. Juni 1953",
                     HolidayTypes = HolidayTypes.Public,
